@@ -1,22 +1,18 @@
-# MetaCrafterToken
+# Smart Contract Insurance Protocol
 
-MetaCrafterToken is an ERC-20 token smart contract with additional functionalities for managing organizations, stakeholders, and whitelisting. It is implemented in Solidity and utilizes the OpenZeppelin library for ERC-20 functionality.
+An insurance protocol that helps owners of smart contract wallets stay protected from hackers and also Collateral protection for crypto backed loans
 
 ## Features
 
-- **Organization Registration:** Allows organizations to register themselves by providing their address and the address of their associated token.
+<!-- - **Organization Registration:** Allows organizations to register themselves by providing their address and the address of their associated token.
 
 - **Stakeholder Management:** Enables organizations to add stakeholders with details such as the amount of tokens, vesting period, and stakeholder type (Founder, Investor, Other).
 
-- **Whitelisting:** Organizations can whitelist addresses for certain stakeholders, allowing whitelisted addresses to claim their tokens after the vesting period.
+- **Whitelisting:** Organizations can whitelist addresses for certain stakeholders, allowing whitelisted addresses to claim their tokens after the vesting period. -->
 
 ## Contract Details
 
-- **Contract Name:** MetaCrafterToken
 
-- **Symbol:** MTN
-
-- **Decimals:** 18
 
 ### Getting Started
 
