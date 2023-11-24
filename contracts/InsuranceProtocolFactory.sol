@@ -1,16 +1,21 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
 import "./InsuranceProtocolContract.sol";
 import "./InsuranceCollateralContract.sol";
 
-contract InsuranceProtocolFactory {
-     // State variables
+contract InsuranceProtocolFactory is ERC20, Ownable {
+    using SafeMath for uint;
+        // State variables
     mapping(address => InsuranceProtocol) public insurancePools;
     mapping(address => ColateralProtocol) public collateralPools;
     address public loanToken;
     address public admin;
+    
 
     address[] public insurancePoolAddresses;
     address[] public collateralPoolAddresses;
@@ -25,13 +30,18 @@ contract InsuranceProtocolFactory {
     string constant ERR_ONLY_ADMIN = "Only admin allowed";
 
     // Constructor to set the admin and loan token address
-    constructor(address _loanToken, address _admin) {
-        admin = _admin;
-        loanToken = _loanToken;
+    constructor()
+    ERC20("MetaToken", "MTN"){
+        admin = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
+        loanToken = 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2;
+        transferOwnership(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4);
+        _mint(msg.sender, 100000 * 10 ** 18);
     }
 
+   
+
     // Function to create a new insurance pool
-    function createInsurancePool(uint _premium) external {
+    function createInsurancePool(uint _premium) external payable {
         InsuranceProtocol newPool = new InsuranceProtocol(_premium, msg.sender);
         insurancePools[msg.sender] = newPool;
         insurancePoolAddresses.push(address(newPool));
@@ -40,7 +50,9 @@ contract InsuranceProtocolFactory {
     // Function to create a new collateral pool
     function createCollateralPool() external payable {
         // Calculate the Ether value based on the provided value and current Ether price
+
         uint ethValue = (msg.value * getEthPrice()) / 10 ** 18;
+   
         // Calculate the loan amount based on the collateral value
         uint loanAmount = (ethValue * (1000 * 10 ** 18)) / 1500;
 
@@ -58,9 +70,10 @@ contract InsuranceProtocolFactory {
         collateralPoolAddresses.push(address(newPool));
 
         // Transfer the loan amount in tokens to the pool creator
-        IERC20(loanToken).transfer(msg.sender, loanAmount);
+        _transfer(owner(),msg.sender, loanAmount);
         // Transfer the provided Ether value to the collateral pool
         payable(address(newPool)).transfer(msg.value);
+        
     }
 
     // Function to get the list of insurance pool addresses

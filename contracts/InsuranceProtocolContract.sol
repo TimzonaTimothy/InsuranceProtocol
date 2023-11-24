@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract InsuranceProtocol {
+    using SafeMath for uint;
    uint public premiumPrice; // Monthly insurance premium price
     address public client;    // Address of the wallet owner
 

@@ -1,17 +1,13 @@
-# Smart Contract Insurance Protocol
+# INSURANCE AND COLATERAL PROTECTION CONTRACT
 
-An insurance protocol that helps owners of smart contract wallets stay protected from hackers and also Collateral protection for crypto backed loans
+This Solidity program is a simple implementation of an "Insurance contract" and a "Colateral protection contract", it impliments the factory contract model to allow individuals create either an insurance contracts or a colateral protection contract for crypto backed loans.
 
-## Features
+## Description
 
-<!-- - **Organization Registration:** Allows organizations to register themselves by providing their address and the address of their associated token.
+This program is a simple contract written in Solidity, a programming language used for developing smart contracts on the Ethereum blockchain. The contract is a factory contract that deploys new instances of a child contract depending on the users choice. The factory is able to deploy an insurance contract or a Collateral contract. The insurance contract allows a user to pay his premium monthly or anually depending on the users choice while the Colateral management contract implements a logic that helps check if the value of a user's colateral has droped below 20, of which if it does then the users colatetal is liquidated, the user cal also repay back his loan to receive back his colateral.
 
-- **Stakeholder Management:** Enables organizations to add stakeholders with details such as the amount of tokens, vesting period, and stakeholder type (Founder, Investor, Other).
-
-- **Whitelisting:** Organizations can whitelist addresses for certain stakeholders, allowing whitelisted addresses to claim their tokens after the vesting period. -->
-
-## Contract Details
-
+## Contract Detail (POLYGON MUMBAI)
+    Factory Contract: https://mumbai.polygonscan.com/address/0xE82599Bb236C7BD9C219A5dC98297C7ad71Bba37#code
 
 
 ### Getting Started
@@ -19,8 +15,7 @@ An insurance protocol that helps owners of smart contract wallets stay protected
 ## Clone the repository:
 
    git clone <repository_url>
-   cd MetaCrafterToken
-
+  
 
 ## Install Dependencies:
 

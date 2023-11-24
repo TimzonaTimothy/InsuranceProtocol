@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 /**
  * @title Collateral protection for crypto backed loans
@@ -11,6 +12,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract ColateralProtocol {
      // State variables
+     using SafeMath for uint;
     address public owner;                   // Owner of the collateral
     address public factory;                 // Factory contract address
     address public loanToken;               // ERC20 token used for the loan
