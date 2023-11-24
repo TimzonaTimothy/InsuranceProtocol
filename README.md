@@ -6,8 +6,8 @@ This Solidity program is a simple implementation of an "Insurance contract" and 
 
 This program is a simple contract written in Solidity, a programming language used for developing smart contracts on the Ethereum blockchain. The contract is a factory contract that deploys new instances of a child contract depending on the users choice. The factory is able to deploy an insurance contract or a Collateral contract. The insurance contract allows a user to pay his premium monthly or anually depending on the users choice while the Colateral management contract implements a logic that helps check if the value of a user's colateral has droped below 20, of which if it does then the users colatetal is liquidated, the user cal also repay back his loan to receive back his colateral.
 
-## Contract Detail (POLYGON MUMBAI)
-    Factory Contract: https://mumbai.polygonscan.com/address/0xE82599Bb236C7BD9C219A5dC98297C7ad71Bba37#code
+## Factory Contract (POLYGON MUMBAI)
+    https://mumbai.polygonscan.com/address/0xE82599Bb236C7BD9C219A5dC98297C7ad71Bba37#code
 
 
 ### Getting Started
